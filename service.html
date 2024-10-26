@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>www.paisayar.com.pk</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">PaisaYaar</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">FAQs</a></li>
+      <li><a href="#">Complaints</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleNavbar()">
+      <div class="bar"></div>
+    </div>
+  </nav>
+
+
+
+
+
+  <header class="header-section">
+    <div class="image-container">
+      <img src="nope.png" alt="Header Image" class="header-image">
+    </div>
+  </header>
+
+
+
+
+
+  
+    <section class="loan-calculator">
+        <div class="calculator-left">
+            <h3>Loan Amount</h3>
+            <input type="range" min="1000" max="50000" step="1000" id="loanAmount" value="1000" oninput="calculateLoan()">
+            <p id="loanAmountValue"> 1000 Ruppees</p>
+            
+            <h3>Loan Days</h3>
+            <input type="range" min="7" max="30" step="1" id="loanDays" value="7" oninput="calculateLoan()">
+            <p id="loanDaysValue">7 Days</p>
+        </div>
+        
+        <div class="calculator-right">
+            <h4>Penalty Rate: 0.78% (if not paid on time)</h4>
+            <div class="markup">
+                <p>Interest (per week): <span id="interest"> 100</span> Ruppees</p>
+            </div>
+            <div class="total-amount">
+                <p>Total Amount:  <span id="totalAmount"> 1100</span> Ruppees</p>
+            </div>
+            <a href=""  class="href" >   Apply  </a>
+            
+    </section>
+
+
+    
+
+
+
+    
+    
+
+
+
+
+<script>
+    function toggleNavbar() {
+    const navLinks = document.querySelector('.nav-links');
+    const hamburger = document.querySelector('.hamburger');
+    
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  }
+
+
+  function calculateLoan() {
+    const loanAmount = parseInt(document.getElementById("loanAmount").value);
+    const loanDays = parseInt(document.getElementById("loanDays").value);
+    const interestRate = 0.1; // Interest rate of 10% per week
+    const penaltyRate = 0.0078; // Penalty rate of 0.78%
+    
+    // Calculate interest based on loan days (e.g., weekly interest)
+    const interest = Math.ceil((loanAmount * interestRate) * (loanDays / 7));
+    const totalAmount = loanAmount + interest;
+    
+    // Update values on the page
+    document.getElementById("loanAmountValue").textContent = `₹ ${loanAmount}`;
+    document.getElementById("loanDaysValue").textContent = `${loanDays} Days`;
+    document.getElementById("interest").textContent = interest;
+    document.getElementById("totalAmount").textContent = totalAmount;
+}
+
+// Initialize calculation
+calculateLoan();
+
+</script>
+<div >
+    <img src="footer.png" alt="" class="footer">
+</div>
+</body>
+</html>

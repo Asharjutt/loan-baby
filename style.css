@@ -1,0 +1,551 @@
+/* Basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: green;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  /* Desktop navigation links */
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+  }
+  
+  .hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  
+  .hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    transition: 0.3s;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      height: 100%;
+      background-color: white;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      width: 60%;
+      transition: right 0.5s ease-in-out;
+    }
+  
+    .nav-links.active {
+      right: 0;
+    }
+  
+    .hamburger {
+      display: flex;
+    }
+  
+    .hamburger.active .bar:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+  
+    .hamburger.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+  
+    .hamburger.active .bar:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
+
+  
+
+
+
+
+
+
+
+
+  /* Header Section */
+.header-section {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-image {
+  width: 100%;
+  height:none;
+  display: block;
+  margin-top: -30px;
+}
+
+/* Card Container */
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    padding: 0 2rem;
+    margin-top: 20px;
+  }
+  
+  .card {
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    width: 22%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 8px;
+    opacity: 0; /* Start invisible */
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Left Cards Animation */
+  .card.left {
+    transform: translateY(100px); /* Start from the bottom */
+    animation: fadeInUp 1s forwards; /* Triggered by JS */
+  }
+  
+  /* Right Cards Animation */
+  .card.right {
+    transform: translateX(100px); /* Start from the right */
+    animation: slideInRight 1s forwards; /* Triggered by JS */
+  }
+  
+  /* Fade In Up Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Slide In Right Animation */
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .card-container {
+      flex-direction: column;
+    }
+  
+    .card {
+      width: 80%;
+      margin-bottom: 1rem;
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+  .image-container {
+    text-align: center; /* Center the image */
+    margin: 50px 0; /* Add some margin */
+    margin-top: 30px;
+}
+
+.animated-image {
+    width: 100%; /* Full width */
+    max-width: 600px; /* Max width for larger screens */
+    opacity: 0; /* Start invisible */
+    transform: translateY(100px); /* Start from below */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transition for the animation */
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .animated-image {
+        max-width: 90%; /* Allow more space on smaller screens */
+    }
+}
+
+.pic
+{
+    margin-top: 50px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+
+
+
+
+
+.carousel-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+    background-color: #F8FDFC;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    opacity: 0; /* Start invisible */
+    transition: opacity 0.5s ease;
+}
+
+.carousel-item.active {
+    opacity: 1; /* Show active item */
+}
+
+.carousel img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.carousel p {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Navigation buttons */
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 24px;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    button {
+        font-size: 18px; /* Smaller buttons on smaller screens */
+    }
+}
+
+
+
+
+
+
+
+
+.importance-notice {
+    background-color: #F8FDFC; /* Background color */
+    border: 1px solid #d1e7dd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px;
+    margin: 20px 0; /* Margin for spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+    width: 80%;
+   margin-left: 130px;
+}
+
+h2 {
+    color: #2e3a47; /* Heading color */
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .importance-notice {
+        width: 80%;
+        margin-left: 60px;
+    }
+}
+
+.message
+{
+    color: #4ACD97;
+}
+
+
+
+
+.banner-container {
+    text-align: center; /* Center the image */
+    padding: 20px; /* Add padding around the container */
+    overflow: hidden; /* Prevent overflow during animation */
+}
+
+/* Banner image styling */
+.banner-image {
+    width: 100%; /* Make the image full width */
+    max-width: 1200px; /* Set a max width for larger screens */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 20px; /* Optional: add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add shadow */
+    opacity: 0; /* Start invisible */
+    transform: translateY(50px); /* Start from below */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transition for animation */
+}
+
+/* Animation class */
+.show {
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Move to original position */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .banner-image {
+        max-width: 100%; /* Reduce max width on smaller screens */
+        border-radius: 5px; /* Adjust border radius for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-image {
+        max-width: 95%; /* Further reduce max width for mobile devices */
+    }
+}
+
+
+
+
+
+
+
+/* About Us section styling */
+.about-us {
+    background-color: #ffffff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    padding: 30px; /* Padding inside the section */
+    max-width: 800px; /* Maximum width for the section */
+    margin: 20px auto; /* Center the section */
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #2e3a47; /* Heading color */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+p {
+    color: #555; /* Text color */
+    line-height: 1.6;
+    text-align: center; /* Spacing between lines */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .about-us {
+        padding: 20px; /* Reduce padding on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-us {
+        padding: 15px; /* Further reduce padding for mobile devices */
+    }
+}
+
+/* Initial State */
+.about-us, .vision {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* When in view */
+.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.vision
+
+{
+    background-color: #F8FDFC; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    padding: 30px; /* Padding inside the section */
+    max-width: 800px; /* Maximum width for the section */
+    margin: 20px auto; 
+    margin-bottom: 30px;/* Center the section */
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #2e3a47; /* Heading color */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+p {
+    color: #555; /* Text color */
+    line-height: 1.6;
+    text-align: center; /* Spacing between lines */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .about-us {
+        padding: 20px; /* Reduce padding on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .about-us {
+        padding: 15px; /* Further reduce padding for mobile devices */
+    }
+}
+
+
+.footer
+{
+    width: 100%;
+    @media (max-width: 768px) {
+width: 100%;
+}
+}
+
+
+
+
+
+/* Loan Calculator Section */
+.loan-calculator {
+    display: flex;
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+}
+
+.calculator-left, .calculator-right {
+    flex: 1;
+}
+
+/* Left Side Styles */
+h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#loanAmountValue, #loanDaysValue {
+    margin-top: 5px;
+    color: #555;
+}
+
+/* Right Side Styles */
+h4 {
+    color: #ff6347; /* Penalty rate color */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.markup, .total-amount {
+    margin: 10px 0;
+}
+
+.markup p, .total-amount p {
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+
+.href
+{
+    margin-left: 150px;
+     background-color: #239465; 
+     padding: 10px;
+      border-radius: 20px; 
+      width: 100px; 
+      color: white;
+       text-decoration: none;
+       margin-top: 30px;
+}
